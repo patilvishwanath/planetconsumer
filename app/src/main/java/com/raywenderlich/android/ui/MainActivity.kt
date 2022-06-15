@@ -1,28 +1,21 @@
-package com.razeware.planetconsumer
+package com.raywenderlich.android.ui
 
 import android.content.ContentValues
 import android.database.Cursor
 import android.net.Uri
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
 import android.util.Log
-import android.view.View
-import android.widget.Button
-import android.widget.EditText
-import android.widget.ListView
-import android.widget.SimpleCursorAdapter
-import android.widget.Toast
-import androidx.loader.app.LoaderManager
-import androidx.loader.content.CursorLoader
-
+import android.widget.*
+import androidx.appcompat.app.AppCompatActivity
+import raywenderlich.android.R
 import java.text.DecimalFormat
 
 class MainActivity : AppCompatActivity() {
 
-  lateinit var button: Button
-  lateinit var editText: EditText
-  lateinit var listView: ListView
-  var cursor: Cursor? = null
+  private lateinit var button: Button
+  private lateinit var editText: EditText
+  private lateinit var listView: ListView
+  private var cursor: Cursor? = null
 
   var URI = Uri.parse("")
 
@@ -30,13 +23,13 @@ class MainActivity : AppCompatActivity() {
     super.onCreate(savedInstanceState)
     setContentView(R.layout.activity_main)
 
-    listView = findViewById<ListView>(R.id.listview)
-    editText = findViewById<EditText>(R.id.edittext)
-    button = findViewById<Button>(R.id.button)
+    listView = findViewById(R.id.listview)
+    editText = findViewById(R.id.edittext)
+    button = findViewById(R.id.button)
 
-    button.setOnClickListener(View.OnClickListener {
+    button.setOnClickListener {
       // TODO
-    })
+    }
 
     refresh_name_table()
   }
@@ -78,7 +71,7 @@ class MainActivity : AppCompatActivity() {
         lat -= latMargin
       }
 
-      latMargin = latMargin / 2
+      latMargin /= 2
     }
 
     while (lngMargin > 0.0005) {
@@ -91,7 +84,7 @@ class MainActivity : AppCompatActivity() {
         lng -= lngMargin
       }
 
-      lngMargin = lngMargin / 2
+      lngMargin /= 2
     }
 
     val format = DecimalFormat("#.###")
@@ -124,7 +117,7 @@ class MainActivity : AppCompatActivity() {
         lat -= latMargin
       }
 
-      latMargin = latMargin / 2
+      latMargin /= 2
     }
 
     while (lngMargin > 0.0005) {
@@ -139,7 +132,7 @@ class MainActivity : AppCompatActivity() {
         lng -= lngMargin
       }
 
-      lngMargin = lngMargin / 2
+      lngMargin /= 2
     }
 
     val format = DecimalFormat("#.###")

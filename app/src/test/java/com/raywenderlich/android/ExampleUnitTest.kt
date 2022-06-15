@@ -1,4 +1,4 @@
-package com.razeware.planetconsumer
+package com.raywenderlich.android
 
 import org.junit.Test
 
